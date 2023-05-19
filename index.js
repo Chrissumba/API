@@ -74,38 +74,39 @@
 // }
 
 // // Function to delete a post
-function deletePost() {
-    var postId = document.getElementById('deletePostIdInput').value;
+// function deletePost() {
+//     var postId = document.getElementById('deletePostIdInput').value;
 
-    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
-            method: 'DELETE',
-        })
-        .then(response => {
-            if (response.ok) {
-                console.log('Post deleted successfully.');
-            } else {
-                console.log('Post deletion failed.');
-            }
-        })
-        .catch(error => {
-            // Handle any errors that occurred
-            console.error('Error:', error);
-        });
-    document.getElementById('deletePostIdInput').value = ''
-}
-
-// // Function to filter posts
-// function filterPosts() {
-//     var userId = document.getElementById('userIdInput').value;
-
-//     fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
-//         .then(response => response.json())
-//         .then(data => {
-//             // Process the data and display it on the page
-//             console.log(data);
+//     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
+//             method: 'DELETE',
+//         })
+//         .then(response => {
+//             if (response.ok) {
+//                 console.log('Post deleted successfully.');
+//             } else {
+//                 console.log('Post deletion failed.');
+//             }
 //         })
 //         .catch(error => {
 //             // Handle any errors that occurred
 //             console.error('Error:', error);
 //         });
+//     document.getElementById('deletePostIdInput').value = ''
 // }
+
+// // Function to filter posts
+function filterPosts() {
+    var userId = document.getElementById('userIdInput').value;
+
+    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+        .then(response => response.json())
+        .then(data => {
+            // Process the data and display it on the page
+            console.log(data);
+        })
+        .catch(error => {
+            // Handle any errors that occurred
+            console.error('Error:', error);
+        });
+    document.getElementById('userIdInput').value = ''
+}
